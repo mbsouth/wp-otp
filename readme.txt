@@ -1,10 +1,13 @@
 === WP-OTP ===
-Contributors: noplanman, mbsouth
+Contributors: noplanman
+Donate link: https://noplanman.ch/donate
 Tags: login, 2fa, two factor, otp, totp, one time password, security, recovery, google authenticator
-Requires at least: 6.0
+Requires at least: 4.6
 Tested up to: 7.1
-Requires PHP: 8.4
 Stable tag: 0.7.0
+Requires PHP: 8.4
+Author URI: https://noplanman.ch
+Plugin URI: https://git.feneas.org/noplanman/wp-otp
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,7 +50,7 @@ There are a multitude of filters to be adjusted.
 * `wp_otp_secret_length`: Length of the secret key.
 
 = Minimum requirements =
-WordPress 6.0, PHP 8.4.
+WordPress 4.6, PHP 8.4.
 
 = Donate / Support =
 
