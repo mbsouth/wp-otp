@@ -303,17 +303,12 @@ class Wp_Otp_Admin {
 				'uri_logo'       => plugins_url( 'images/aegis.png', __FILE__ ),
 			],
 			[
-				'name'           => 'andOTP',
-				'uri'            => 'https://github.com/andOTP/andOTP',
-				'uri_play_store' => 'https://play.google.com/store/apps/details?id=org.shadowice.flocke.andotp',
-				'uri_f_droid'    => 'https://f-droid.org/packages/org.shadowice.flocke.andotp',
-				'uri_logo'       => plugins_url( 'images/andotp.png', __FILE__ ),
-			],
-			[
-				'name'        => 'OneTimePass',
-				'uri'         => 'https://github.com/OneTimePass/OneTimePass',
-				'uri_f_droid' => 'https://f-droid.org/en/packages/com.github.onetimepass',
-				'uri_logo'    => plugins_url( 'images/onetimepass.png', __FILE__ ),
+				'name'           => 'Authenticator.cc',
+				'uri'            => 'https://github.com/Authenticator-Extension/Authenticator',
+				'uri_play_store' => 'https://chrome.google.com/webstore/detail/authenticator/bhghoamapcdpbohphigoooaddinpkbai',
+				'uri_mozilla'    => 'https://addons.mozilla.org/en-US/firefox/addon/auth-helper?src=external-github',
+				'uri_microsoft'  => 'https://microsoftedge.microsoft.com/addons/detail/ocglkepbibnalbgmbachknglpdipeoio',
+				'uri_logo'       => plugins_url( 'images/authenticator.png', __FILE__ ),
 			],
 			[
 				'name'           => 'FreeOTP+',
@@ -343,6 +338,14 @@ class Wp_Otp_Admin {
 			'app_store'  => [
 				'name'     => 'App Store',
 				'uri_logo' => plugins_url( 'images/app-store.png', __FILE__ ),
+			],
+			'mozilla'    => [
+				'name'     => 'Firefox AddOns',
+				'uri_logo' => plugins_url( 'images/mozilla-firefox.png', __FILE__ ),
+			],
+			'microsoft'  => [
+				'name'     => 'Microsoft Edge AddOns',
+				'uri_logo' => plugins_url( 'images/ms-edge.png', __FILE__ ),
 			],
 		];
 
