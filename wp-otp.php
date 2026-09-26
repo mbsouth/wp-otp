@@ -3,12 +3,12 @@
  * Plugin Name:       WP-OTP
  * Plugin URI:        https://wordpress.org/plugins/wp-otp/
  * Description:       WP-OTP adds 2 Factor Authentication using TOTP. (Based on "WP Secure Login" by Brijesh Kothari)
- * Version:           0.6.1
+ * Version:           0.7.0
+ * Requires PHP:      8.4
  * Author:            Armando Lüscher
  * Author URI:        https://noplanman.ch
  * License:           GPLv2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * GitLab Plugin URI: https://git.feneas.org/noplanman/wp-otp
  * GitLab Branch:     master
  *
  * @package Wp_Otp
@@ -21,7 +21,7 @@ defined( 'WPINC' ) || exit;
 
 // Define constants.
 define( 'WP_OTP_SLUG', 'wp-otp' );
-define( 'WP_OTP_VERSION', '0.6.1' );
+define( 'WP_OTP_VERSION', '0.7.0' );
 
 require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/includes/class-wp-otp.php';

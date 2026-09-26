@@ -11,6 +11,7 @@
 
 namespace Wp_Otp;
 
+use OTPHP\InternalClock;
 use OTPHP\TOTP;
 use OTPHP\TOTPInterface;
 use WP_Error;
@@ -53,7 +54,7 @@ class Wp_Otp_Public {
 		);
 		?>
 		<p>
-			<label for="wp-otp-code"><?php echo wp_kses_data( $otp_text ); ?></label><br/>
+			<label for="wp-otp-code"><?php echo wp_kses_data( $otp_text ); ?></label><br>
 			<?php '' !== $otp_text_sub && print wp_kses_data( sprintf( '<em>%s</em>', $otp_text_sub ) ); ?>
 			<input type="text" class="input" name="wp-otp-code" id="wp-otp-code"/>
 		</p>
@@ -178,7 +179,7 @@ class Wp_Otp_Public {
 	 */
 	private function get_otp_if_enabled( Wp_Otp_User_Meta $user_meta_data ): ?TOTPInterface {
 		if ( $user_meta_data->get( 'enabled' ) && null !== $user_meta_data->get( 'secret' ) ) {
-			return TOTP::create( $user_meta_data->get( 'secret' ) );
+			return TOTP::createFromSecret( $user_meta_data->get( 'secret' ), new InternalClock() );
 		}
 
 		return null;

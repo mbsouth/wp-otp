@@ -11,6 +11,7 @@ namespace Wp_Otp;
 
 use chillerlan\QRCode\QRCode;
 use chillerlan\QRCode\QROptions;
+use OTPHP\InternalClock;
 use OTPHP\TOTP;
 use ParagonIE\ConstantTime\Base32;
 use Throwable;
@@ -78,8 +79,8 @@ class Wp_Otp_Admin {
 		// Get the secret.
 		$secret = $user_meta_data->get( 'secret', $this->get_random_secret() );
 
-		$otp = TOTP::create( $secret );
-		$otp->setLabel( $user->user_login );
+		$otp = TOTP::createFromSecret( $secret, new InternalClock() );
+		$otp = $otp->withLabel( $user->user_login );
 
 		$otp_code = sanitize_key( $_POST['wp-otp-code'] ?? '' );
 		if ( $otp_code && ! $user_meta_data->get( 'enabled', false ) ) {
@@ -257,11 +258,11 @@ class Wp_Otp_Admin {
 		$secret = $user_meta_data->get( 'secret', $this->get_random_secret() );
 		$user_meta_data->set( 'secret', $secret, true );
 
-		$otp = TOTP::create( $secret );
-		$otp->setLabel( $user->user_login );
+		$otp = TOTP::createFromSecret( $secret, new InternalClock() );
+		$otp = $otp->withLabel( $user->user_login );
 
 		// Issuer isn't allowed to have any colon.
-		$otp->setIssuer( str_replace( [ ':', '%3a', '%3A' ], '', get_bloginfo( 'name' ) ) );
+		$otp = $otp->withIssuer( str_replace( [ ':', '%3a', '%3A' ], '', get_bloginfo( 'name' ) ) );
 
 		$qr_code_provisioning_uri_default = 'https://api.qrserver.com/v1/create-qr-code/?data={PROVISIONING_URI}&qzone=2';
 		/**
