@@ -56,7 +56,7 @@
 
 			<?php foreach ( $otp_apps as $otp_app ) : ?>
 				<span class="wp-otp-app-box">
-					<strong><?php echo esc_html( $otp_app['name'] ); ?></strong><br>
+					<span><?php echo esc_html( $otp_app['name'] ); ?></span>
 					<a href="<?php echo esc_html( $otp_app['uri'] ); ?>" target="_blank">
 						<img src="<?php echo esc_url( $otp_app['uri_logo'] ); ?>"
 							 alt="<?php echo esc_attr( $otp_app['name'] ); ?>"
